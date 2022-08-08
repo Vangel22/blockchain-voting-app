@@ -13,12 +13,12 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("1");
 
-  const Ballot = await hre.ethers.getContractFactory("Lock");
-  const ballot = await Ballot.deploy(unlockTime, { value: lockedAmount });
+  const Lock = await hre.ethers.getContractFactory("Lock");
+  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
 
-  await ballot.deployed();
+  await lock.deployed();
 
-  console.log("Ballot with 1 ETH deployed to:", ballot.address);
+  console.log("Lock with 1 ETH deployed to:", lock.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
